@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'bookmarks#index'
+  
+  resources :kinds
+  resources :categories
+  resources :bookmarks
+  get 'get_bookmarks/:category', to: 'bookmarks#bookmarks_category', as: 'bookmarks_category'
+
 end
