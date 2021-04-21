@@ -22,14 +22,14 @@
   </div>
 
   <div class="field">
-    <h5><%= form.label "Select categories" %></h5> 
-    <%= form.select :category_id, Category.pluck(:name, :id) %>
+    <h5><%= form.label "Select Kinds" %></h5> 
+    <%= form.select :kind_id, Kind.all.collect {|t| [t.name, t.id]}, {} ,id: :bookmark_kind_id, include_blank:false %>
 
   </div>
   
   <div class="field">
-    <h5><%= form.label "Select kinds" %></h5>  
-    <%= form.select :kind_id, Kind.pluck(:name, :id) %>
+    <h5><%= form.label "Select Categories" %></h5>  
+    <%= form.select :category_id, Category.all.collect {|c| [c.name, c.id]}, {} ,id: :bookmark_category_id, include_blank:false %>
   
   </div>
 

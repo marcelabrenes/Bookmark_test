@@ -5,10 +5,16 @@ class BookmarksController < ApplicationController
   def index
     @bookmarks = Bookmark.all
     @bookmark = Bookmark.new
+    @bookmarks_cat = Bookmark.joins(:category).group("categories.name").count
+    @chartz = Bookmark.joins(:kind).group("kinds.name").count
   end
 
   # GET /bookmarks/1 or /bookmarks/1.json
   def show
+    respond_to do |format|
+      format.js 
+      format.html { render :show }
+    end
   end
 
   # GET /bookmarks/new
