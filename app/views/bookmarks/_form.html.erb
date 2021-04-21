@@ -11,29 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<div class= "container">
+<h1>Create a BookMark</h1>
+  <div class="form-row">
+      <div class="form-group col-md-4">
+        <%= form.text_field :title, autofocus: true, autocomplete: "Name", class:'form-control', placeholder: 'Title' %>
+      </div>
+
+      <div class="form-group col-md-4">
+        <%= form.text_field :url, autofocus: true, autocomplete: "URL", class:'form-control', placeholder: 'URL' %>
+      </div>
   </div>
 
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.text_field :url %>
+  <div class="form-row">
+      <div class="form-group col-md-4">
+        <h5><%= form.label "Select Kinds" %></h5> 
+        <%= form.select :kind_id, Kind.all.collect {|k| [k.name, k.id]}, {} ,id: :bookmark_kind_id, include_blank:false %>
+
+      </div>
+      
+      <div class="form-group col-md-4">
+        <h5><%= form.label "Select Categories" %></h5>  
+        <%= form.select :category_id, Category.all.collect {|c| [c.name, c.id]}, {} ,id: :bookmark_category_id, include_blank:false %>
+      </div>
   </div>
 
-  <div class="field">
-    <h5><%= form.label "Select Kinds" %></h5> 
-    <%= form.select :kind_id, Kind.all.collect {|t| [t.name, t.id]}, {} ,id: :bookmark_kind_id, include_blank:false %>
+      <div class="actions">
+        <%= form.submit class: 'btn btn-warning rounded-pill' %>
+      </div>
 
-  </div>
-  
-  <div class="field">
-    <h5><%= form.label "Select Categories" %></h5>  
-    <%= form.select :category_id, Category.all.collect {|c| [c.name, c.id]}, {} ,id: :bookmark_category_id, include_blank:false %>
-  
-  </div>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

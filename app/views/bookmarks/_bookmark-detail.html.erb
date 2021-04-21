@@ -1,11 +1,8 @@
 <td><%= bookmark.title %></td>
 <td><%= bookmark.url %></td>
-<td>
-    <%= bookmark.category.name %>
-</td>
-<td>
-    <%= bookmark.kind.name %>
-</td>
-<td><%= link_to 'Show', bookmark %></td>
-<td><%= link_to 'Edit', edit_bookmark_path(bookmark) %></td>
-<td><%= link_to 'Destroy', bookmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<td><%= bookmark.category.name %></td>
+<td><%= bookmark.kind.name %></td>
+
+<td><%= link_to 'Show', bookmark, class: 'btn btn-warning rounded-pill' %></td>
+<td><%= link_to 'Edit', edit_bookmark_path(bookmark), class: 'btn btn-warning rounded-pill' %></td>
+<td><%= link_to 'Destroy', bookmark, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning rounded-pill' %></td>

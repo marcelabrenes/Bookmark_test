@@ -1,24 +1,28 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Title:</strong>
-  <%= @bookmark.title %>
-</p>
+<div class="card my-3" style="width: 18rem;">
+  <div class="card-header">
+    <strong>Title:</strong>
+    <%= @bookmark.title %>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+    <strong>Kind:</strong>
+    <%= @bookmark.kind.name %>
+    </li>
+    <li class="list-group-item">
+    <strong>Url:</strong>
+    <%= @bookmark.url %>
+    </li>
+    <li class="list-group-item">
+    <strong>Category:</strong>
+    <%= @bookmark.category.name %>
+    </li>
+  </ul>
+</div>
 
-<p>
-  <strong>Url:</strong>
-  <%= @bookmark.url %>
-</p>
+<%= link_to 'Edit', edit_bookmark_path(@bookmark), class: 'btn btn-warning rounded-pill' %> |
+<%= link_to 'Back', bookmarks_path, class: 'btn btn-warning rounded-pill' %>
 
-<p>
-  <strong>Kind:</strong>
-  <%= @bookmark.kind.name %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @bookmark.category.name %>
-</p>
-
-<%= link_to 'Edit', edit_bookmark_path(@bookmark) %> |
-<%= link_to 'Back', bookmarks_path %>
+</div>

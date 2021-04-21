@@ -27,7 +27,7 @@ class BookmarksController < ApplicationController
   end
 
   def bookmarks_category
-    @bookmarks = Bookmark.where(category: category_params)
+    @bookmarks = Bookmark.where(category_id: params[:category])
     render json: @bookmarks.as_json(include: :category)
   end
 
@@ -53,6 +53,7 @@ class BookmarksController < ApplicationController
       if @bookmark.update(bookmark_params)
         format.html { redirect_to @bookmark, notice: "Bookmark was successfully updated." }
         format.json { render :show, status: :ok, location: @bookmark }
+        format.js 
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @bookmark.errors, status: :unprocessable_entity }

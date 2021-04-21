@@ -1,18 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Bookmarks</h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Big Bang Marks</h1>
+    <p class="lead">These are some BookMarks showing the dicography of Big Bang, including DVDs and solo material</p>
+  </div>
+</div>
 
+
+<div class="container">
 <div class="m-4">
   <%= render 'form', bookmark: @bookmark %>
 </div>
 
-<table class="table" id="table_bookmarks">
+<table class="table table-hover" id="table_bookmarks">
+<h1>Current BookMarks</h1>
   <thead>
     <tr>
       <th>Title</th>
       <th>Url</th>
-      <th>Kind</th>
       <th>Category</th>
+      <th>Kind</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,8 +34,17 @@
 
 <br>
 
-<h1>Graphics</h1>
-<h3>Categories</h3>
-<%= pie_chart @bookmarks_cat %>
-<h3>Kind</h3>
-<%= pie_chart @chartz %>
+  <h1 class="text-center">Graphics</h1>
+  <div class="row">
+    <div class="col">
+      <h3>Categories</h3>
+      <%= pie_chart @bookmarks_cat %>
+    </div>
+
+    <div class="col">
+    <h3>Kind</h3>
+    <%= pie_chart @chartz %>
+    </div>
+  </div>
+
+</div>
