@@ -26,11 +26,6 @@ class BookmarksController < ApplicationController
   def edit
   end
 
-  def bookmarks_category
-    @bookmarks = Bookmark.where(category_id: params[:category])
-    render json: @bookmarks.as_json(include: :category)
-  end
-
   # POST /bookmarks or /bookmarks.json
   def create
     @bookmark = Bookmark.new(bookmark_params)
@@ -81,7 +76,4 @@ class BookmarksController < ApplicationController
       params.require(:bookmark).permit(:title, :url, :category_id, :kind_id)
     end
 
-    def category_params
-      params.require(:category)
-    end
 end

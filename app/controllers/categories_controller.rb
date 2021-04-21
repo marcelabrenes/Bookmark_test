@@ -19,6 +19,17 @@ class CategoriesController < ApplicationController
   def edit
   end
 
+  def api
+    category = Category.find(params[:id])
+    hash = {
+      name: category.name,
+      private: category.private,
+      category_id: category.category_id,
+      bookmarks: category.bookmarks.pluck(:title)
+    }
+    render json: hash
+  end
+
   # POST /categories or /categories.json
   def create
     @category = Category.new(category_params)

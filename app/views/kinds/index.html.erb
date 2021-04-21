@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <h1>Kinds</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -14,9 +14,9 @@
     <% @kinds.each do |kind| %>
       <tr>
         <td><%= kind.name %></td>
-        <td><%= link_to 'Show', kind %></td>
-        <td><%= link_to 'Edit', edit_kind_path(kind) %></td>
-        <td><%= link_to 'Destroy', kind, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', kind, class: 'btn btn-warning rounded-pill' %></td>
+        <td><%= link_to 'Edit', edit_kind_path(kind), class: 'btn btn-warning rounded-pill' %></td>
+        <td><%= link_to 'Destroy', kind, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning rounded-pill' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,5 @@
 
 <br>
 
-<%= link_to 'New Kind', new_kind_path %>
+<%= link_to 'New Kind', new_kind_path, class: 'btn btn-warning rounded-pill' %>
+</div>
